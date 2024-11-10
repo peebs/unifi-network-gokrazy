@@ -46,13 +46,10 @@ func unifiController() error {
 		"-p", "8443:8443",
 		"-p", "3478:3478/udp",
 		"-p", "10001:10001/udp",
-		"-v", "/perm/home/unifi-controller-gokrazy:/unifi",
+		"-v", "/perm/home/unifi-network-gokrazy:/unifi",
 		"-e", "TZ=America/Los_Angeles",
 		"-e", "LOTSOFDEVICES=true",
-		"-e", "RUNAS_UID0=false",
-		"-e", "UNIFI_UID=1000",
-		"-e", "UNIFI_GID=1000",
-		// "--network", "host",
+		"--memory", "850M",
 		"--name", "unifi",
 		"jacobalberty/unifi:latest"); err != nil {
 		return err
